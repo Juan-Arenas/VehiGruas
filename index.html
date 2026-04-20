@@ -87,7 +87,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&family=Anton&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&family=Anton&display=swap"
+      rel="stylesheet" />
+  </noscript>
   <style>
     :root {
       --red: #FF1A1A;
@@ -1326,16 +1331,16 @@
     }
 
     /* ANIMATIONS */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(14px)
-      }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform .8s cubic-bezier(.2, .8, .2, 1), opacity .8s cubic-bezier(.2, .8, .2, 1);
+      will-change: transform, opacity;
+    }
 
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @keyframes pulse-ring {
@@ -1352,20 +1357,16 @@
       }
     }
 
-    .fade-up {
-      animation: fadeUp .35s ease both;
-    }
-
     .delay-1 {
-      animation-delay: .05s;
+      transition-delay: .05s;
     }
 
     .delay-2 {
-      animation-delay: .1s;
+      transition-delay: .1s;
     }
 
     .delay-3 {
-      animation-delay: .15s;
+      transition-delay: .15s;
     }
 
     .pulse {
@@ -1622,7 +1623,7 @@
         </div>
         <div class="problema-visual">
           <img src="Grua4.webp" alt="Grúa VehiGruas ESU-497 transportando SUV en carretera del Eje Cafetero" width="600"
-            height="750" loading="lazy" />
+            height="450" loading="lazy" />
           <div class="overlay-label">
             <p>El momento más <span>estresante</span> de tu día</p>
           </div>
@@ -1895,7 +1896,7 @@
         </div>
         <div class="consecuencias-visual">
           <img src="Varadoo.webp" alt="Grúa VehiGruas trabajando de noche – Grúas 24 horas Pereira" width="600"
-            height="800" loading="lazy" />
+            height="400" loading="lazy" />
           <div class="red-overlay"></div>
           <div class="cons-caption">No arriesgues más — llama ya</div>
         </div>
